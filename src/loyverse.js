@@ -75,6 +75,7 @@ function getOpeningDate() {
 function burgerSoldToday(id_s) {
 	return new Promise((resolve, reject) => {
 		date = getOpeningDate();
+		console.log('Date sent to API: '+ date + '📅')
 		fetch(`https://api.loyverse.com/v1.0/receipts?created_at_min=${date}&limit=250`, {
 			method: "get",
 			headers: auth_header,

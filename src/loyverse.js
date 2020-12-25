@@ -1,5 +1,5 @@
-// Port python code
 const fetch = require("node-fetch");
+// require("dotenv").config();
 
 const api_key = process.env.API_KEY;
 const auth_header = { Authorization: `Bearer ${api_key}` };
@@ -45,7 +45,8 @@ function getBurgersId(response) {
 
 // Generate time stamp of current day with opening hour time
 function getOpeningDate() {
-	let openingHour = 9;
+	let openingHour = 8; // A esta hora es cuando se resetea para el siguiente dia
+	let utcOpeningHour = openingHour + 8;
 	let ts = Date.now();
 	let d = new Date(ts);
 	let year = d.getUTCFullYear();
@@ -54,10 +55,8 @@ function getOpeningDate() {
 
 	// Check if is next day on not working hours, if it is, use yesterdays date (so not to give date on the future to API)
 	currentHour = d.getUTCHours();
-	currentMinute = d.getUTCMinutes();
 
-	// 8 => una hora antes de abrir 8:00 = 15:00utc
-	if (currentHour >= 0 && currentHour < (openingHour)) {
+	if (currentHour >= 0 && currentHour < utcOpeningHour) {
 		year = d.getUTCFullYear();
 		month = d.getUTCMonth() + 1;
 		day = d.getUTCDate() - 1;

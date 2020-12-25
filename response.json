@@ -1,0 +1,196 @@
+{
+    "receipts": [
+        {
+            "receipt_number": "3-1005",
+            "note": null,
+            "receipt_type": "SALE",
+            "refund_for": null,
+            "order": null,
+            "created_at": "2020-12-25T08:16:29.029Z",
+            "updated_at": "2020-12-25T08:16:29.029Z",
+            "source": "point of sale",
+            "receipt_date": "2020-12-25T08:16:18.018Z",
+            "cancelled_at": null,
+            "total_money": 650.0,
+            "total_tax": 0.0,
+            "points_earned": 0.0,
+            "points_deducted": 0.0,
+            "points_balance": 0.0,
+            "customer_id": null,
+            "total_discount": 0.0,
+            "employee_id": "32de551a-71a9-11ea-8d93-0603130a05b8",
+            "store_id": "fa7b1e94-711d-11ea-8d93-0603130a05b8",
+            "pos_device_id": "ce8045a7-b785-4702-beb3-229f8057251c",
+            "dining_option": "Comer dentro",
+            "total_discounts": [],
+            "total_taxes": [],
+            "tip": 0.0,
+            "surcharge": 0.0,
+            "line_items": [
+                {
+                    "id": "9553152a-9d89-d54e-f6a3-2ab8d917516c",
+                    "item_id": "2febb473-711f-11ea-8d93-0603130a05b8",
+                    "variant_id": "0c3e8734-71aa-11ea-8d93-0603130a05b8",
+                    "item_name": "Clasica",
+                    "variant_name": null,
+                    "sku": "10000",
+                    "quantity": 5,
+                    "price": 130.0,
+                    "gross_total_money": 650.0,
+                    "total_money": 650.0,
+                    "cost": 7.2,
+                    "cost_total": 36.0,
+                    "line_note": null,
+                    "line_taxes": [],
+                    "total_discount": 0.0,
+                    "line_discounts": [],
+                    "line_modifiers": [
+                        {
+                            "id": "659c141b-4ece-42df-8987-1aeee6087415",
+                            "modifier_option_id": "5d79d9c5-7e8e-45a4-b955-d05e5cf77bae",
+                            "name": "Combo",
+                            "option": "Papas y Agua Fresca",
+                            "price": 0.0,
+                            "money_amount": 0.0
+                        }
+                    ]
+                }
+            ],
+            "payments": [
+                {
+                    "payment_type_id": "831d0f39-71b4-11ea-8d93-0603130a05b8",
+                    "name": "Efectivo",
+                    "type": "CASH",
+                    "money_amount": 650.0,
+                    "paid_at": "2020-12-25T08:16:18.018Z",
+                    "payment_details": null
+                }
+            ]
+        },
+        {
+            "receipt_number": "3-1004",
+            "note": null,
+            "receipt_type": "SALE",
+            "refund_for": null,
+            "order": null,
+            "created_at": "2020-12-25T08:15:13.013Z",
+            "updated_at": "2020-12-25T08:15:13.013Z",
+            "source": "point of sale",
+            "receipt_date": "2020-12-25T08:15:10.010Z",
+            "cancelled_at": null,
+            "total_money": 1300.0,
+            "total_tax": 0.0,
+            "points_earned": 0.0,
+            "points_deducted": 0.0,
+            "points_balance": 0.0,
+            "customer_id": null,
+            "total_discount": 0.0,
+            "employee_id": "32de551a-71a9-11ea-8d93-0603130a05b8",
+            "store_id": "fa7b1e94-711d-11ea-8d93-0603130a05b8",
+            "pos_device_id": "ce8045a7-b785-4702-beb3-229f8057251c",
+            "dining_option": "Comer dentro",
+            "total_discounts": [],
+            "total_taxes": [],
+            "tip": 0.0,
+            "surcharge": 0.0,
+            "line_items": [
+                {
+                    "id": "9553152a-9d89-d54e-f6a3-2ab8d916516c",
+                    "item_id": "2febb473-711f-11ea-8d93-0603130a05b8",
+                    "variant_id": "0c3e8734-71aa-11ea-8d93-0603130a05b8",
+                    "item_name": "Clasica",
+                    "variant_name": null,
+                    "sku": "10000",
+                    "quantity": 10,
+                    "price": 130.0,
+                    "gross_total_money": 1300.0,
+                    "total_money": 1300.0,
+                    "cost": 7.2,
+                    "cost_total": 72.0,
+                    "line_note": null,
+                    "line_taxes": [],
+                    "total_discount": 0.0,
+                    "line_discounts": [],
+                    "line_modifiers": []
+                }
+            ],
+            "payments": [
+                {
+                    "payment_type_id": "831d0f39-71b4-11ea-8d93-0603130a05b8",
+                    "name": "Efectivo",
+                    "type": "CASH",
+                    "money_amount": 1300.0,
+                    "paid_at": "2020-12-25T08:15:10.010Z",
+                    "payment_details": null
+                }
+            ]
+        },
+        {
+            "receipt_number": "3-1003",
+            "note": null,
+            "receipt_type": "SALE",
+            "refund_for": null,
+            "order": null,
+            "created_at": "2020-12-25T08:14:21.021Z",
+            "updated_at": "2020-12-25T08:14:21.021Z",
+            "source": "point of sale",
+            "receipt_date": "2020-12-25T08:14:18.018Z",
+            "cancelled_at": null,
+            "total_money": 130.0,
+            "total_tax": 0.0,
+            "points_earned": 0.0,
+            "points_deducted": 0.0,
+            "points_balance": 0.0,
+            "customer_id": null,
+            "total_discount": 0.0,
+            "employee_id": "32de551a-71a9-11ea-8d93-0603130a05b8",
+            "store_id": "fa7b1e94-711d-11ea-8d93-0603130a05b8",
+            "pos_device_id": "ce8045a7-b785-4702-beb3-229f8057251c",
+            "dining_option": "Comer dentro",
+            "total_discounts": [],
+            "total_taxes": [],
+            "tip": 0.0,
+            "surcharge": 0.0,
+            "line_items": [
+                {
+                    "id": "9553152a-9d89-d54e-f6a3-2ab8d915516c",
+                    "item_id": "2febb473-711f-11ea-8d93-0603130a05b8",
+                    "variant_id": "0c3e8734-71aa-11ea-8d93-0603130a05b8",
+                    "item_name": "Clasica",
+                    "variant_name": null,
+                    "sku": "10000",
+                    "quantity": 1,
+                    "price": 130.0,
+                    "gross_total_money": 130.0,
+                    "total_money": 130.0,
+                    "cost": 7.2,
+                    "cost_total": 7.2,
+                    "line_note": null,
+                    "line_taxes": [],
+                    "total_discount": 0.0,
+                    "line_discounts": [],
+                    "line_modifiers": [
+                        {
+                            "id": "659c141b-4ece-42df-8987-1aeee6087415",
+                            "modifier_option_id": "5d79d9c5-7e8e-45a4-b955-d05e5cf77bae",
+                            "name": "Combo",
+                            "option": "Papas y Agua Fresca",
+                            "price": 0.0,
+                            "money_amount": 0.0
+                        }
+                    ]
+                }
+            ],
+            "payments": [
+                {
+                    "payment_type_id": "831d0f39-71b4-11ea-8d93-0603130a05b8",
+                    "name": "Efectivo",
+                    "type": "CASH",
+                    "money_amount": 130.0,
+                    "paid_at": "2020-12-25T08:14:18.018Z",
+                    "payment_details": null
+                }
+            ]
+        }
+    ]
+}

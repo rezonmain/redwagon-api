@@ -57,7 +57,7 @@ function getOpeningDate() {
 	currentMinute = d.getUTCMinutes();
 
 	// 8 => una hora antes de abrir 8:00 = 15:00utc
-	if (currentHour >= 0 && currentHour < (openingHour - 1)) {
+	if (currentHour >= 0 && currentHour < (openingHour)) {
 		year = d.getUTCFullYear();
 		month = d.getUTCMonth() + 1;
 		day = d.getUTCDate() - 1;

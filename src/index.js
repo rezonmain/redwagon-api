@@ -4,7 +4,6 @@ const morgan = require('morgan');
 const cors = require('cors');
 const rateLimit = require('express-rate-limit');
 const loyverseApi = require("./loyverse.js")
-require('dotenv').config();
 
 const app = express();
 const limiter = rateLimit({
@@ -14,9 +13,7 @@ const limiter = rateLimit({
 
 app.use(morgan("combined"));
 app.use(express.json());
-app.use(cors({
-	origin: process.env.CORS_ORIGIN
-}));
+app.use(cors());
 app.use(limiter);
 app.use(helmet());
 

@@ -1,6 +1,5 @@
 // Port python code
 const fetch = require("node-fetch");
-require('dotenv').config();
 
 const api_key = process.env.API_KEY;
 const auth_header = { Authorization: `Bearer ${api_key}` };

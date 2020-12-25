@@ -1,5 +1,4 @@
 const fetch = require("node-fetch");
-// require("dotenv").config();
 
 const api_key = process.env.API_KEY;
 const auth_header = { Authorization: `Bearer ${api_key}` };
@@ -75,7 +74,7 @@ function getOpeningDate() {
 function burgerSoldToday(id_s) {
 	return new Promise((resolve, reject) => {
 		date = getOpeningDate();
-		console.log('Date sent to API: '+ date + '📅')
+		console.log('Date sent to API: '+ date);
 		fetch(`https://api.loyverse.com/v1.0/receipts?created_at_min=${date}&limit=250`, {
 			method: "get",
 			headers: auth_header,

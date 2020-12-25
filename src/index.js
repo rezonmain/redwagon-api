@@ -19,7 +19,7 @@ app.use(helmet());
 
 app.get("/", async (req, res, next) => {
 	res.json({
-		message: "Hello! This endpoint is redwagon's API 🍔"
+		message: "Hello! This endpoint is redwagon's API 🍔",
 	})
 
 });
@@ -52,6 +52,7 @@ app.use((error, req, res, next) => {
 });
   
 const port = process.env.PORT || 3000;
+const url = process.env.NODE_ENV === 'production' ? 'https://redwagon-api.herokuapp.com/' : `http://localhost:${port}`;
 app.listen(port, () => {
-	console.log(`Listening at: ${port} 🍔`);
+	console.log(`Listening at: ${url}`);
 });

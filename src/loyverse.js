@@ -1,6 +1,8 @@
 const fetch = require('node-fetch');
 const dateHandler = require('./datehandler.js');
-const fs = require('fs');
+if (process.env.NODE_ENV !== 'production') {
+	require('dotenv').config();
+}
 
 const api_key = process.env.API_KEY;
 const auth_header = { Authorization: `Bearer ${api_key}` };
@@ -50,7 +52,7 @@ function getBurgersId(response) {
 // Extract burgers sold from todays receipts
 function burgerSoldToday(id_s) {
 	return new Promise((resolve, reject) => {
-		date = dateHandler.getTimeForApi(Date.now());
+		date = dateHandler.getTimeForApi();
 		console.log('Date sent to API: ' + date);
 		fetch(`https://api.loyverse.com/v1.0/receipts?created_at_min=${date}&limit=250`, {
 			method: 'get',

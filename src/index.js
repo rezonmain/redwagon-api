@@ -50,7 +50,7 @@ app.use((error, req, res, next) => {
 	});
 });
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 const url = process.env.NODE_ENV === 'production' ? 'https://redwagon-api.herokuapp.com/' : `http://localhost:${port}`;
 app.listen(port, () => {
 	console.log(`Listening at: ${url}`);

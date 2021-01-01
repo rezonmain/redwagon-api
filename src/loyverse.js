@@ -1,4 +1,6 @@
 const fetch = require('node-fetch');
+const dateHandler = require('./datehandler.js');
+const fs = require('fs');
 
 const api_key = process.env.API_KEY;
 const auth_header = { Authorization: `Bearer ${api_key}` };
@@ -45,38 +47,10 @@ function getBurgersId(response) {
 	return id_s;
 }
 
-// Generate time stamp of current day with opening hour time
-function getOpeningDate() {
-	let openingHour = 8; // A esta hora es cuando se resetea para el siguiente dia
-	let utcOpeningHour = openingHour + 8;
-	let ts = Date.now();
-	let d = new Date(ts);
-	let year = d.getUTCFullYear();
-	let month = d.getUTCMonth() + 1;
-	let day = d.getUTCDate();
-
-	// Check if is next day on not working hours, if it is, use yesterdays date (so not to give date on the future to API)
-	currentHour = d.getUTCHours();
-
-	if (currentHour >= 0 && currentHour < utcOpeningHour) {
-		year = d.getUTCFullYear();
-		month = d.getUTCMonth() + 1;
-		day = d.getUTCDate() - 1;
-
-		// To comply with day format DD cat 0, as datetime.now().day returns single char if day has 1 digit
-		if (day.length == 1) {
-			day = `0${day}`;
-		}
-		date = year + '-' + month + '-' + day;
-	}
-	date = `${year}-${month}-${day}T15:00:00.000Z`; // Una hora antes de abrir
-	return date;
-}
-
 // Extract burgers sold from todays receipts
 function burgerSoldToday(id_s) {
 	return new Promise((resolve, reject) => {
-		date = getOpeningDate();
+		date = dateHandler.getTimeForApi(Date.now());
 		console.log('Date sent to API: ' + date);
 		fetch(`https://api.loyverse.com/v1.0/receipts?created_at_min=${date}&limit=250`, {
 			method: 'get',

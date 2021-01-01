@@ -6,3 +6,8 @@ npm-debug.log
 *.env
 *.dev
 .DS_Store
+
+# API response files
+burgersSold.json
+ids.json
+receipts.json

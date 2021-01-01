@@ -2,7 +2,7 @@
 const { DateTime } = require('luxon');
 module.exports.getTimeForApi = function () {
 	let localOpeningHour = 14;
-	let utcOpeningHour = DateTime.fromObject({ hour: localOpeningHour }).toUTC().hour;
+	let utcOpeningHour = DateTime.fromObject({ zone: 'America/Tijuana', hour: localOpeningHour }).toUTC().hour;
 	let localTime = DateTime.fromObject({ zone: 'America/Tijuana' });
 	let localCurrentHour = localTime.hour;
 

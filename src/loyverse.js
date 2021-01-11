@@ -53,7 +53,7 @@ function getBurgersId(response) {
 function burgerSoldToday(id_s) {
 	return new Promise((resolve, reject) => {
 		date = dateHandler.getTimeForApi();
-		console.log('Date sent to API: ' + date);
+		console.log('Me: Date sent to API: ' + date);
 		fetch(`https://api.loyverse.com/v1.0/receipts?created_at_min=${date}&limit=250`, {
 			method: 'get',
 			headers: auth_header,
@@ -91,5 +91,6 @@ function getNumber(burgersSold) {
 	for (let i in burgersSold) {
 		numberOfBurgers = numberOfBurgers + burgersSold[i]['cantidad'];
 	}
+	console.log('Me: Burgers sold: ' + numberOfBurgers.toString());
 	return numberOfBurgers;
 }

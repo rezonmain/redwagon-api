@@ -98,7 +98,7 @@ module.exports.getNumberOfBurgerSoldToday = async function (readReceiptsFromFile
 			});
 		});
 	});
-	writeJsonFile('./data/burgersSold.json', burgers);
+	// writeJsonFile('./data/burgersSold.json', burgers);
 	return countBurgers(burgers);
 };
 

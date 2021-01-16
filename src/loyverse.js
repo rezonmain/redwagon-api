@@ -94,3 +94,5 @@ function getNumber(burgersSold) {
 	console.log('Me: Burgers sold: ' + numberOfBurgers.toString());
 	return numberOfBurgers;
 }
+
+function getBurgerSoldToday() {}

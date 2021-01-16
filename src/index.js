@@ -3,7 +3,8 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 const cors = require('cors');
 const rateLimit = require('express-rate-limit');
-const loyverseApi = require('./loyverse.js');
+const loyverseApi = require('./loyversev2.js');
+const dateHandler = require('./datehandler.js');
 
 const app = express();
 const limiter = rateLimit({
@@ -25,11 +26,14 @@ app.get('/', async (req, res, next) => {
 
 app.get('/number', async (req, res, next) => {
 	try {
-		const burgers = await loyverseApi.numberOfBurgers();
+		const [beef, chicken] = await loyverseApi.getNumberOfBurgerSoldToday();
 		res.json({
-			number_burgers: burgers,
+			beef: beef,
+			chicken: chicken,
 			timestamp: Date.now(),
 		});
+		// Logging
+		console.log(`Me: beef: ${beef}, chicken: ${chicken}, date: ${dateHandler.localDate()}`);
 	} catch (e) {
 		next(e);
 	}
@@ -51,7 +55,10 @@ app.use((error, req, res, next) => {
 });
 
 const port = process.env.PORT || 5000;
-const url = process.env.NODE_ENV === 'production' ? 'https://redwagon-api.herokuapp.com/' : `http://localhost:${port}`;
+const url =
+	process.env.NODE_ENV === 'production'
+		? 'https://redwagon-api.herokuapp.com/'
+		: `http://localhost:${port}`;
 app.listen(port, () => {
 	console.log(`Listening at: ${url}`);
 });

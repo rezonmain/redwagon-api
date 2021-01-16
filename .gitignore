@@ -8,6 +8,5 @@ npm-debug.log
 .DS_Store
 
 # API response files
-burgersSold.json
 ids.json
 receipts.json

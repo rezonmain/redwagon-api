@@ -33,7 +33,7 @@ app.get('/number', async (req, res, next) => {
 			timestamp: Date.now(),
 		});
 		// Logging
-		console.log(`Me: beef: ${beef}, chicken: ${chicken}, time: ${dateHandler.localDate()}`);
+		console.log(`Me: beef: ${beef}, chicken: ${chicken}, date: ${dateHandler.localDate()}`);
 	} catch (e) {
 		next(e);
 	}

@@ -6,7 +6,10 @@ npm-debug.log
 *.env
 *.dev
 .DS_Store
+dev/
 
 # API response files
 ids.json
 receipts.json
+items.json
+burgersSold.json

@@ -34,16 +34,18 @@ function handleBadResponse(res) {
 
 // TODO: only run this function on opening hour with heroku scheduler (cron)
 // BTW IT WORKS AWESOMEEEEE
-async function getBurgerIds() {
+module.exports.getBurgerIds = async function () {
 	// Category ids:
 	const beef = '9a3d4344-71b4-11ea-8d93-0603130a05b8';
 	const chicken = '13489b13-bc2f-47ed-ae7e-d0f6c98d59b7';
 	const items = await requestFromApi('items?limit=250');
+	writeJsonFile('./data/items.json', items);
 	let ids_beef = findItemsWithCategoryId(items, beef);
 	let ids_chicken = findItemsWithCategoryId(items, chicken);
 	writeJsonFile('./data/ids_beef.json', ids_beef);
 	writeJsonFile('./data/ids_chicken.json', ids_chicken);
-}
+	return [ids_beef, ids_chicken];
+};
 
 // Returns object with items with that category id
 // Only used by getBurgersIds method
@@ -98,7 +100,7 @@ module.exports.getNumberOfBurgerSoldToday = async function (readReceiptsFromFile
 			});
 		});
 	});
-	// writeJsonFile('./data/burgersSold.json', burgers);
+	writeJsonFile('./data/burgersSold.json', burgers);
 	return countBurgers(burgers);
 };
 
@@ -132,9 +134,3 @@ function writeJsonFile(path, data) {
 		console.log(`ME: unable to write file ${path}` + e);
 	}
 }
-
-// // async IFFE for testing
-// (async () => {
-// 	let [b, c] = await getNumberOfBurgerSoldToday();
-// 	console.log(b, c);
-// })();

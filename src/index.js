@@ -39,11 +39,6 @@ app.get('/number', async (req, res, next) => {
 	}
 });
 
-app.post('/receipts', (req, res, next) => {
-	console.log(req.body);
-	res.sendStatus(200);
-});
-
 app.use((req, res, next) => {
 	const error = new Error(`Not Found - ${req.originalUrl}`);
 	res.status(404);

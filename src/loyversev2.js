@@ -1,6 +1,6 @@
 const fetch = require('node-fetch');
-const { readFileSync, writeFileSync } = require('fs');
 const dateHandler = require('./datehandler.js');
+const utils = require('./utils.js');
 if (process.env.NODE_ENV !== 'production') {
 	require('dotenv').config();
 }
@@ -32,18 +32,18 @@ function handleBadResponse(res) {
 	return res;
 }
 
-// TODO: only run this function on opening hour with heroku scheduler (cron)
+// only run this function on opening hour with heroku scheduler (cron)
 // BTW IT WORKS AWESOMEEEEE
 module.exports.getBurgerIds = async function () {
 	// Category ids:
 	const beef = '9a3d4344-71b4-11ea-8d93-0603130a05b8';
 	const chicken = '13489b13-bc2f-47ed-ae7e-d0f6c98d59b7';
 	const items = await requestFromApi('items?limit=250');
-	writeJsonFile('./data/items.json', items);
+	utils.writeJsonFile('./data/items.json', items);
 	let ids_beef = findItemsWithCategoryId(items, beef);
 	let ids_chicken = findItemsWithCategoryId(items, chicken);
-	writeJsonFile('./data/ids_beef.json', ids_beef);
-	writeJsonFile('./data/ids_chicken.json', ids_chicken);
+	utils.writeJsonFile('./data/ids_beef.json', ids_beef);
+	utils.writeJsonFile('./data/ids_chicken.json', ids_chicken);
 	return [ids_beef, ids_chicken];
 };
 
@@ -63,8 +63,8 @@ function findItemsWithCategoryId(items, category_id) {
 
 // Exported function
 module.exports.getNumberOfBurgerSoldToday = async function (readReceiptsFromFile = false) {
-	const idsBeef = readJsonFile('./data/ids_beef.json');
-	const idsChicken = readJsonFile('./data/ids_chicken.json');
+	const idsBeef = utils.readJsonFile('./data/ids_beef.json');
+	const idsChicken = utils.readJsonFile('./data/ids_chicken.json');
 	let burgers = {
 		beef: [],
 		chicken: [],
@@ -72,7 +72,7 @@ module.exports.getNumberOfBurgerSoldToday = async function (readReceiptsFromFile
 	const date = dateHandler.getTimeForApi();
 	let receipts;
 	if (readReceiptsFromFile) {
-		receipts = readJsonFile('./data/receipts.json');
+		receipts = utils.readJsonFile('./data/receipts.json');
 	} else {
 		receipts = await requestFromApi(`receipts?created_at_min=${date}&limit=250`);
 	}
@@ -100,7 +100,7 @@ module.exports.getNumberOfBurgerSoldToday = async function (readReceiptsFromFile
 			});
 		});
 	});
-	writeJsonFile('./data/burgersSold.json', burgers);
+	utils.writeJsonFile('./data/burgersSold.json', burgers);
 	return countBurgers(burgers);
 };
 
@@ -114,23 +114,4 @@ function countBurgers(burgersSold) {
 		chicken = chicken + burgersSold.chicken[i]['quantity'];
 	}
 	return [beef, chicken];
-}
-
-// Returns an object from a file
-function readJsonFile(path) {
-	try {
-		return JSON.parse(readFileSync(path, 'utf-8'));
-	} catch (e) {
-		console.log(`ME: Unable to read file ${path} ` + e);
-		return null;
-	}
-}
-
-function writeJsonFile(path, data) {
-	try {
-		data = JSON.stringify(data, null, 4);
-		writeFileSync(path, data);
-	} catch (e) {
-		console.log(`ME: unable to write file ${path}` + e);
-	}
 }

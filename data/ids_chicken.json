@@ -1,7 +1,22 @@
-{
-    "0": "29ab1b78-6386-404e-835c-6968a9c4b2bc",
-    "1": "e868667d-a7d7-43e4-8efe-a467a72b5fbc",
-    "2": "a8b97f82-6563-460d-b07f-7bc4ca6e445c",
-    "3": "58d84348-bdec-4d06-aab7-81db5070143a",
-    "4": "2ff1844b-711f-11ea-8d93-0603130a05b8"
-}
+[
+    {
+        "item_id": "29ab1b78-6386-404e-835c-6968a9c4b2bc",
+        "item_name": "Crispy Ajuste"
+    },
+    {
+        "item_id": "e868667d-a7d7-43e4-8efe-a467a72b5fbc",
+        "item_name": "Sweet n Spicy"
+    },
+    {
+        "item_id": "a8b97f82-6563-460d-b07f-7bc4ca6e445c",
+        "item_name": "Mr Spicy Chicken"
+    },
+    {
+        "item_id": "58d84348-bdec-4d06-aab7-81db5070143a",
+        "item_name": "Buffalo Blue Cheese"
+    },
+    {
+        "item_id": "2ff1844b-711f-11ea-8d93-0603130a05b8",
+        "item_name": "Polluela"
+    }
+]

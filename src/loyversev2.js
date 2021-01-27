@@ -32,14 +32,13 @@ function handleBadResponse(res) {
 	return res;
 }
 
-// only run this function on opening hour with heroku scheduler (cron)
 // BTW IT WORKS AWESOMEEEEE
-module.exports.getBurgerIds = async function () {
+module.exports.insertNewBurgerToDB = async function () {
 	// Category ids:
 	const beef = '9a3d4344-71b4-11ea-8d93-0603130a05b8';
 	const chicken = '13489b13-bc2f-47ed-ae7e-d0f6c98d59b7';
-	const items = await requestFromApi('items?limit=250');
-	utils.writeJsonFile('./data/items.json', items);
+	//const items = await requestFromApi('items?limit=250');
+	//utils.writeJsonFile('./data/items.json', items);
 	let ids_beef = findItemsWithCategoryId(items, beef);
 	let ids_chicken = findItemsWithCategoryId(items, chicken);
 	utils.writeJsonFile('./data/ids_beef.json', ids_beef);
@@ -49,12 +48,19 @@ module.exports.getBurgerIds = async function () {
 
 // Returns object with items with that category id
 // Only used by getBurgersIds method
+// Parse data for db
 function findItemsWithCategoryId(items, category_id) {
-	let data = {};
+	class BurgerItem {
+		constructor(item_id, item_name) {
+			this.item_id = item_id;
+			this.item_name = item_name;
+		}
+	}
+	let data = [];
 	let i = 0;
 	items['items'].forEach((item, index) => {
 		if (item.category_id === category_id) {
-			data[i] = item.id;
+			data[i] = new BurgerItem(item.id, item.item_name);
 			i++;
 		}
 	});

@@ -5,6 +5,7 @@ const cors = require('cors');
 const rateLimit = require('express-rate-limit');
 const loyverseApi = require('./loyversev2.js');
 const dateHandler = require('./datehandler.js');
+const utils = require('./utils.js');
 
 const app = express();
 const limiter = rateLimit({
@@ -18,6 +19,7 @@ app.use(cors());
 app.use(limiter);
 app.use(helmet());
 
+//Routes te amooooo osooooo
 app.get('/', async (req, res, next) => {
 	res.json({
 		message: "Hello! This endpoint is redwagon's API 🍔",
@@ -37,6 +39,19 @@ app.get('/number', async (req, res, next) => {
 	} catch (e) {
 		next(e);
 	}
+});
+
+//WebHooks, should come from loyverse
+app.post('/item_update', (req, res, next) => {
+	res.send(req.body);
+	utils.writeJsonFile('./data/item_update.json', req.body);
+	console.log(req.body);
+});
+
+app.post('/receipt_update', (req, res, next) => {
+	res.send(req.body);
+	utils.writeJsonFile('./data/receipt_update.json', req.body);
+	console.log(req.body);
 });
 
 app.use((req, res, next) => {

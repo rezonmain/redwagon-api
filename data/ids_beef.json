@@ -1,11 +1,38 @@
-{
-    "0": "388817a4-899e-425d-8799-e10b00a0c9d3",
-    "1": "c9035a92-1438-49b0-b10d-e2b24b02e2d6",
-    "2": "0a3c96e1-7120-11ea-8d93-0603130a05b8",
-    "3": "fbcf9275-711f-11ea-8d93-0603130a05b8",
-    "4": "981d56b7-711f-11ea-8d93-0603130a05b8",
-    "5": "2ff181be-711f-11ea-8d93-0603130a05b8",
-    "6": "2ff092de-711f-11ea-8d93-0603130a05b8",
-    "7": "2fef0742-711f-11ea-8d93-0603130a05b8",
-    "8": "2febb473-711f-11ea-8d93-0603130a05b8"
-}
+[
+    {
+        "item_id": "388817a4-899e-425d-8799-e10b00a0c9d3",
+        "item_name": "Burger Ajuste"
+    },
+    {
+        "item_id": "c9035a92-1438-49b0-b10d-e2b24b02e2d6",
+        "item_name": "Hamburguesa de Niño"
+    },
+    {
+        "item_id": "0a3c96e1-7120-11ea-8d93-0603130a05b8",
+        "item_name": "Jalapeño OMG"
+    },
+    {
+        "item_id": "fbcf9275-711f-11ea-8d93-0603130a05b8",
+        "item_name": "Sweet Hawaian"
+    },
+    {
+        "item_id": "981d56b7-711f-11ea-8d93-0603130a05b8",
+        "item_name": "La Bestia"
+    },
+    {
+        "item_id": "2ff181be-711f-11ea-8d93-0603130a05b8",
+        "item_name": "1-Up"
+    },
+    {
+        "item_id": "2ff092de-711f-11ea-8d93-0603130a05b8",
+        "item_name": "Keto Burger"
+    },
+    {
+        "item_id": "2fef0742-711f-11ea-8d93-0603130a05b8",
+        "item_name": "Oeste"
+    },
+    {
+        "item_id": "2febb473-711f-11ea-8d93-0603130a05b8",
+        "item_name": "Clasica"
+    }
+]

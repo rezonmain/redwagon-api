@@ -42,17 +42,6 @@ app.get('/number', async (req, res, next) => {
 });
 
 //WebHooks, should come from loyverse
-app.post('/item_update', (req, res, next) => {
-	res.send(req.body);
-	utils.writeJsonFile('./data/item_update.json', req.body);
-	console.log(req.body);
-});
-
-app.post('/receipt_update', (req, res, next) => {
-	res.send(req.body);
-	utils.writeJsonFile('./data/receipt_update.json', req.body);
-	console.log(req.body);
-});
 
 app.use((req, res, next) => {
 	const error = new Error(`Not Found - ${req.originalUrl}`);

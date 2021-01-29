@@ -86,7 +86,7 @@ module.exports.getNumberOfBurgerSoldToday = async function (readReceiptsFromFile
 		receipts['line_items'].forEach((lineItem, index) => {
 			// Check for beef burgers
 			Object.keys(idsBeef).forEach((key) => {
-				if (lineItem.item_id === idsBeef[key]) {
+				if (lineItem.item_id === idsBeef[key].item_id) {
 					burgers.beef.push({
 						id: lineItem.id,
 						name: lineItem.item_name,
@@ -96,7 +96,7 @@ module.exports.getNumberOfBurgerSoldToday = async function (readReceiptsFromFile
 			});
 			// Check for chicken burgers
 			Object.keys(idsChicken).forEach((key) => {
-				if (lineItem.item_id === idsChicken[key]) {
+				if (lineItem.item_id === idsChicken[key].item_id) {
 					burgers.chicken.push({
 						id: lineItem.id,
 						name: lineItem.item_name,
